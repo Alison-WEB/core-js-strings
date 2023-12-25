@@ -19,8 +19,8 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(value) {
+  return value === undefined || value === null ? 0 : value.length;
 }
 
 /**
@@ -37,10 +37,18 @@ function getStringLength(/* value */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
-}
+// function isString(value) {
+//   let string = true;
+//   if (typeof value === 'string') {
+//     string = true;
+//   }
+//   string = false;
+//   return string;
+// }
 
+function isString(value) {
+  return Object.prototype.toString.call(value) === '[object String]';
+}
 /**
  * Returns the result of concatenation of two strings.
  *
